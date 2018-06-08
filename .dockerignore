@@ -1,0 +1,6 @@
+.vscode
+__pycache__
+webapp/__pycache__
+webapp/react/node_modules
+webapp/react/build
+.env
