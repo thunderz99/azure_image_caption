@@ -14,19 +14,19 @@ class App extends React.Component {
 
     var formData = new FormData();
     for (const file of files) {
-        formData.append('file[]', file);    
+      formData.append('file[]', file);
     }
 
     fetch('/flask/uploader', {
-        method:'POST',
-        body:formData   
-    }).then( res => {
-        res.json().then( json => {
-          console.log('res:' + json)
-          this.setState({files: json})
-        })
-    }).catch( e => {
-        console.log('Error',e);
+      method: 'POST',
+      body: formData
+    }).then(res => {
+      res.json().then(json => {
+        console.log('res:' + json)
+        this.setState({ files: json })
+      })
+    }).catch(e => {
+      console.log('Error', e);
     });
 
 
@@ -37,7 +37,7 @@ class App extends React.Component {
 
   render() {
 
-    const dropStyle = {width: '100%'}
+    const dropStyle = { width: '100%' }
     const imgWidth = '300px'
 
     return (
@@ -48,7 +48,7 @@ class App extends React.Component {
             <h1 className="App-title">画像認識Demo - どんな画像なのかを説明してくれる</h1>
           </header>
         </div>
-        <div style={{height: '10px'}} />
+        <div style={{ height: '10px' }} />
         <div className="dropzone" style={dropStyle}>
           <Dropzone onDrop={this.onDrop.bind(this)}
             accept="image/*"
